@@ -14,4 +14,7 @@ RUN wget https://dlcdn.apache.org/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION-$KAF
 # Add Kafka CLI scripts to PATH
 ENV PATH=$PATH:kafka_$SCALA_VERSION-$KAFKA_VERSION/bin
 
+# Switch off root user
+USER 1001
+
 ENTRYPOINT [ "tail", "-f", "/dev/null"]
