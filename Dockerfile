@@ -1,4 +1,4 @@
-FROM busybox
+FROM busybox:glibc
 ENV KAFKA_VERSION=3.1.0
 ENV SCALA_VERSION=2.13
 
@@ -7,4 +7,4 @@ RUN wget https://dlcdn.apache.org/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION-$KAF
     && tar -xzf kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz \
     && rm -rf  kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz
 
-RUN ls  kafka_$SCALA_VERSION-$KAFKA_VERSION/bin
+ENTRYPOINT [ "tail", "-f", "/dev/null"]
