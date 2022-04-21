@@ -4,10 +4,9 @@ ENV SCALA_VERSION=2.13
 
 # Pre-reqs
 RUN apt-get update \
-    && apt-get install wget -y
-
+    && apt-get install -y wget curl netcat \
 # Download the latest Kafka binary
-RUN wget https://dlcdn.apache.org/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz \
+    && wget https://dlcdn.apache.org/kafka/$KAFKA_VERSION/kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz \
     && tar -xzf kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz \
     && rm -rf  kafka_$SCALA_VERSION-$KAFKA_VERSION.tgz
 
