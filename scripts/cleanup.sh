@@ -1,2 +1,4 @@
 #!/bin/bash
-docker system prune
+
+helm uninstall kafka-busybox
+docker system prune -f
